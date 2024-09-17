@@ -3,10 +3,10 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 
 // Complex mock data for brands management
 const brandsData = [
-  { brand: 'Brand A', impressions: 20000, clicks: 1500, sales: 500, revenue: 12000 },
-  { brand: 'Brand B', impressions: 18000, clicks: 1700, sales: 600, revenue: 15000 },
-  { brand: 'Brand C', impressions: 22000, clicks: 2000, sales: 700, revenue: 17000 },
-  { brand: 'Brand D', impressions: 16000, clicks: 1300, sales: 400, revenue: 10000 },
+  { brand: 'Brand A', impressions: 5000, clicks: 100, sales: 500, revenue: 12000 },
+  { brand: 'Brand B', impressions: 7000, clicks: 5000, sales: 600, revenue: 15000 },
+  { brand: 'Brand C', impressions: 6000, clicks: 10000, sales: 700, revenue: 17000 },
+  { brand: 'Brand D', impressions: 8000, clicks: 1300, sales: 400, revenue: 10000 },
   { brand: 'Brand E', impressions: 21000, clicks: 1800, sales: 650, revenue: 14000 },
 ];
 
