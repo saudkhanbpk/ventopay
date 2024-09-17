@@ -9,6 +9,7 @@ import AdvertisersManagement from './components/AdvertisersManagement';
 import NewRegistrations from './components/NewRegistrations';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
+import BarcodeOrder from './pages/BarcodeOrder';
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<PienaLandingPage />} />
         <Route path="/dash" element={<Dashboard />} />
-        
+        <Route path="/barcode-order" element={<BarcodeOrder />} />
         <Route path="/dashboard" element={<PienaAdminDashboard />}>
           {/* Nested routes under the /dashboard path */}
           <Route path="overview" element={<DashboardOverview />} />
