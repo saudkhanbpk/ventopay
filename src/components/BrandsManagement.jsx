@@ -77,7 +77,7 @@ const BrandsManagement = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="sales" fill="#8884d8" name="Sales" />
+              <Bar dataKey="sales" fill="#8884d8" name="Sale" />
               <Bar dataKey="revenue" fill="#82ca9d" name="Revenue ($)" />
             </BarChart>
           </ResponsiveContainer>
