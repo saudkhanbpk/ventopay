@@ -31,7 +31,7 @@ function Navbar() {
         {/* Navigation for Desktop */}
         <nav className="md:flex hidden">
           <ul className="flex space-x-4">
-            <li><Link to="/dashboard" className="text-gray-600 hover:text-blue-600">Dashboard</Link></li>
+            <li><Link to="/register" className="text-gray-600 hover:text-blue-600">Register</Link></li>
             <li><a href="#features" className="text-gray-600 hover:text-blue-600">Features</a></li>
             <li><a href="#advertisers" className="text-gray-600 hover:text-blue-600">Advertisers</a></li>
             <li><a href="#brands" className="text-gray-600 hover:text-blue-600">Brands</a></li>
