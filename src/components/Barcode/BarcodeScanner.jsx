@@ -1,35 +1,50 @@
-import React, { useEffect } from 'react';
-import Quagga from 'quagga';
+import React, { useEffect } from "react";
+import Quagga from "quagga";
 
 const BarcodeScanner = ({ onDetected }) => {
   useEffect(() => {
-    Quagga.init({
-      inputStream: {
-        name: "Live",
-        type: "LiveStream",
-        target: document.querySelector('#scanner-container'),
+    // Initialize Quagga with camera and barcode decoder settings
+    Quagga.init(
+      {
+        inputStream: {
+          name: "Live",
+          type: "LiveStream",
+          target: document.querySelector("#scanner-container"), // The DOM element to show the camera stream
+          constraints: {
+            width: 640,
+            height: 480,
+            facingMode: "environment", // Use the rear camera
+          },
+        },
+        decoder: {
+          readers: ["code_128_reader", "ean_reader", "upc_reader"], // Multiple barcode readers
+        },
       },
-      decoder: {
-        readers: ["code_128_reader"], // Configure the barcode reader type
-      },
-    }, (err) => {
-      if (err) {
-        console.error(err);
-        return;
+      (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        Quagga.start(); // Start barcode scanning
       }
-      Quagga.start();
-    });
+    );
 
+    // Barcode detected event
     Quagga.onDetected((data) => {
-      onDetected(data.codeResult.code); // When a barcode is detected, pass it to the handler
+      console.log("Barcode detected: ", data);
+      const barcode = data.codeResult.code;
+      onDetected(barcode);
     });
+    
 
     return () => {
-      Quagga.stop(); // Clean up on component unmount
+      Quagga.stop(); // Stop scanning when component unmounts
     };
   }, [onDetected]);
 
-  return <div id="scanner-container" style={{ width: '100%', height: '400px' }} />;
+  return (
+    <div id="scanner-container" style={{ width: "100%", height: "400px" }} />
+  );
 };
 
 export default BarcodeScanner;
