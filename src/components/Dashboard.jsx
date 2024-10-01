@@ -1,14 +1,29 @@
-import React from 'react';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Table } from 'antd'; // For table structure
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const dashboardData = {
   totalAds: 150,
   totalRevenue: 32000,
   newAdvertisers: 5,
   newBrands: 10,
-  impressions: [{ day: 'Monday', count: 12000 }, { day: 'Tuesday', count: 15000 }, { day: 'Wednesday', count: 18000 }],
-  clicks: [{ day: 'Monday', count: 3000 }, { day: 'Tuesday', count: 4000 }, { day: 'Wednesday', count: 4500 }],
+  impressions: [
+    { day: "Monday", count: 12000 },
+    { day: "Tuesday", count: 15000 },
+    { day: "Wednesday", count: 18000 },
+  ],
+  clicks: [
+    { day: "Monday", count: 3000 },
+    { day: "Tuesday", count: 4000 },
+    { day: "Wednesday", count: 4500 },
+  ],
 };
 
 const Dashboard = () => {
@@ -23,11 +38,15 @@ const Dashboard = () => {
           <div className="text-sm">Total Ads Running</div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow">
-          <div className="text-2xl font-bold">${dashboardData.totalRevenue.toLocaleString()}</div>
+          <div className="text-2xl font-bold">
+            ${dashboardData.totalRevenue.toLocaleString()}
+          </div>
           <div className="text-sm">Total Revenue</div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow">
-          <div className="text-2xl font-bold">{dashboardData.newAdvertisers}</div>
+          <div className="text-2xl font-bold">
+            {dashboardData.newAdvertisers}
+          </div>
           <div className="text-sm">Newly Registered Advertisers</div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow">
@@ -45,7 +64,13 @@ const Dashboard = () => {
               <XAxis dataKey="day" />
               <YAxis />
               <Tooltip />
-              <Line type="monotone" dataKey="count" stroke="#8884d8" strokeWidth={2} name="Impressions" />
+              <Line
+                type="monotone"
+                dataKey="count"
+                stroke="#8884d8"
+                strokeWidth={2}
+                name="Impressions"
+              />
             </LineChart>
           </ResponsiveContainer>
         </div>
