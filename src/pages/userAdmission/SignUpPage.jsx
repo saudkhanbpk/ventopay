@@ -16,7 +16,6 @@ const SignUpPage = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
     try {
       await dispatch(signup({ email, password, name })).unwrap();
       navigate("/verify-email");

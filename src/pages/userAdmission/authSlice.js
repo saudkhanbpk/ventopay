@@ -5,7 +5,6 @@ const API_URL = `${import.meta.env.VITE_BASE_URL}/api/auth`;
 
 axios.defaults.withCredentials = true;
 
-// Async thunks for authentication actions
 export const signup = createAsyncThunk(
   "auth/signup",
   async ({ email, password, name }, { rejectWithValue }) => {

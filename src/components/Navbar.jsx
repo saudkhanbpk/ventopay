@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { HiMenuAlt1, HiX } from "react-icons/hi"; // Import menu and close icons
+import { HiMenuAlt1, HiX } from "react-icons/hi";
+import { logout } from "../pages/userAdmission/authSlice";
+import { useDispatch } from "react-redux";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
-  // Toggle menu open/close
+  const handleLogout = async () => {
+    logout();
+    await dispatch(logout()).unwrap();
+  };
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Close menu
   const closeMenu = () => {
     setIsOpen(false);
   };
@@ -25,7 +31,6 @@ function Navbar() {
           VentoPay
         </Link>
 
-        {/* Menu Icon for Mobile */}
         <button
           className="md:hidden text-gray-600 hover:text-blue-600"
           onClick={toggleMenu}
@@ -33,9 +38,8 @@ function Navbar() {
           {isOpen ? <HiX size={24} /> : <HiMenuAlt1 size={24} />}
         </button>
 
-        {/* Navigation for Desktop */}
         <nav className="md:flex hidden">
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-4 items-center">
             <li>
               <Link
                 to="/register"
@@ -62,10 +66,17 @@ function Navbar() {
                 Brands
               </a>
             </li>
+            <button className="bg-blue-600 items-center text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300">
+              <a
+                className=" text-white hover:text-blue-600"
+                onClick={handleLogout}
+              >
+                Log Out
+              </a>
+            </button>
           </ul>
         </nav>
 
-        {/* Mobile Menu */}
         <nav
           className={`md:hidden fixed top-0 left-0 w-full bg-white shadow-md transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "-translate-x-full"

@@ -8,7 +8,6 @@ import {
 import SignUpPage from "./pages/userAdmission/SignUpPage";
 import LoginPage from "./pages/userAdmission/LoginPage";
 import EmailVerificationPage from "./pages/userAdmission/EmailVerificationPage";
-import DashboardPage from "./pages/DashboardPage";
 import ForgotPasswordPage from "./pages/userAdmission/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/userAdmission/ResetPasswordPage";
 import PienaLandingPage from "./components/PienaLandingPage";
@@ -71,6 +70,7 @@ function App() {
               </RedirectAuthenticatedUser>
             }
           />
+
           <Route
             path="/login"
             element={
