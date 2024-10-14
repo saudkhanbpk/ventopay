@@ -1,0 +1,11 @@
+.message-icon {
+  position: fixed;
+  bottom: 20px; /* Adjust the spacing from the bottom */
+  right: 20px; /* Adjust the spacing from the right */
+  z-index: 999; /* Ensure it is above other content */
+  cursor: pointer;
+}
+
+.message-icon:hover {
+  transform: scale(1.1); /* Optional: Add hover effect for interaction */
+}

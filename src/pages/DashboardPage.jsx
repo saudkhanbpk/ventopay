@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../App.css";
 import {
   Layout,
   Menu,
@@ -256,101 +257,106 @@ const DashboardPage = () => {
   );
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Sider
-        theme="light"
-        collapsible
-        collapsed={collapsed}
-        onCollapse={setCollapsed}
-        width={250}
-      >
-        <div style={{ padding: "16px", textAlign: "center" }}>
-          <Avatar size={64} icon={<UserOutlined />} src={image} />
-          <Title level={5} style={{ color: "dark", marginTop: "8px" }}>
-            ADMIN
-          </Title>
-          <Typography.Text style={{ color: "dark" }}>
-            admin@gmail.com
-          </Typography.Text>
-        </div>
-        <div
-          style={{
-            padding: "16px",
-            textAlign: "space-between",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <Button type="primary" onClick={showModal}>
-              EN
-            </Button>
-            <Modal
-              title="Change Language"
-              visible={visible}
-              onCancel={handleCancel}
-              footer={[
-                <Button key="submit" type="primary" onClick={handleSave}>
-                  Save
-                </Button>,
-                <Button key="cancel" onClick={handleCancel}>
-                  Cancel
-                </Button>,
-              ]}
-            >
-              <Dropdown overlay={languageMenu}>
-                <a
-                  className="ant-dropdown-link"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  English <DownOutlined />
-                </a>
-              </Dropdown>
-            </Modal>
-          </div>
-
-          <Space size="large">
-            {/* Moon Icon */}
-            <MoonFilled style={{ fontSize: "18px" }} />
-
-            {/* Bell Icon */}
-            <BellOutlined style={{ fontSize: "18px", color: "#595959" }} />
-          </Space>
-        </div>
-        <div style={{ marginLeft: "16px" }}>
-          <Search placeholder="search" style={{ width: 200 }} />
-        </div>
-        <Menu
+    <>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Sider
           theme="light"
-          defaultSelectedKeys={["1"]}
-          mode="inline"
-          items={menuItems}
-        />
-      </Sider>
-      <Layout>
-        <Header
-          style={{
-            background: "#ebf2fa",
-            padding: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          collapsible
+          collapsed={collapsed}
+          onCollapse={setCollapsed}
+          width={250}
         >
+          <div style={{ padding: "16px", textAlign: "center" }}>
+            <Avatar size={64} icon={<UserOutlined />} src={image} />
+            <Title level={5} style={{ color: "dark", marginTop: "8px" }}>
+              ADMIN
+            </Title>
+            <Typography.Text style={{ color: "dark" }}>
+              admin@gmail.com
+            </Typography.Text>
+          </div>
           <div
             style={{
-              marginRight: "16px",
+              padding: "16px",
+              textAlign: "space-between",
               display: "flex",
+              justifyContent: "space-between",
               alignItems: "center",
             }}
-          ></div>
-        </Header>
-        <Content style={{ margin: "16px" }}>
-          <DashboardContent />
-        </Content>
+          >
+            <div>
+              <Button type="primary" onClick={showModal}>
+                EN
+              </Button>
+              <Modal
+                title="Change Language"
+                visible={visible}
+                onCancel={handleCancel}
+                footer={[
+                  <Button key="submit" type="primary" onClick={handleSave}>
+                    Save
+                  </Button>,
+                  <Button key="cancel" onClick={handleCancel}>
+                    Cancel
+                  </Button>,
+                ]}
+              >
+                <Dropdown overlay={languageMenu}>
+                  <a
+                    className="ant-dropdown-link"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    English <DownOutlined />
+                  </a>
+                </Dropdown>
+              </Modal>
+            </div>
+
+            <Space size="large">
+              {/* Moon Icon */}
+              <MoonFilled style={{ fontSize: "18px" }} />
+
+              {/* Bell Icon */}
+              <BellOutlined style={{ fontSize: "18px", color: "#595959" }} />
+            </Space>
+          </div>
+          <div style={{ marginLeft: "16px" }}>
+            <Search placeholder="search" style={{ width: 200 }} />
+          </div>
+          <Menu
+            theme="light"
+            defaultSelectedKeys={["1"]}
+            mode="inline"
+            items={menuItems}
+          />
+        </Sider>
+        <Layout>
+          <Header
+            style={{
+              background: "#ebf2fa",
+              padding: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                marginRight: "16px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            ></div>
+          </Header>
+          <Content style={{ margin: "16px" }}>
+            <DashboardContent />
+          </Content>
+        </Layout>
+        <div className="message-icon">
+          <MessageOutlined style={{ fontSize: "24px", zIndex: 999 }} />
+        </div>
       </Layout>
-    </Layout>
+    </>
   );
 };
 
